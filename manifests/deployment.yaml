@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flujo-app-sql
+  labels:
+    app: flujo-app-sql
+  namespace: namespace-workflow-1710202961877
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flujo-app-sql
+  template:
+    metadata:
+      labels:
+        app: flujo-app-sql
+    spec:
+      containers:
+        - name: flujo-app-sql
+          image: acrworkflow1710202961877.azurecr.io/image-workflow-1710202961877:latest
+          ports:
+            - containerPort: 5000
