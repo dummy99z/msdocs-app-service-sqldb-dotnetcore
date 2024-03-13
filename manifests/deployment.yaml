@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flu76
+  labels:
+    app: flu76
+  namespace: namespace-workflow-1710300440413
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flu76
+  template:
+    metadata:
+      labels:
+        app: flu76
+    spec:
+      containers:
+        - name: flu76
+          image: acrworkflow1710300440413.azurecr.io/image-workflow-1710300440413:latest
+          ports:
+            - containerPort: 5000
